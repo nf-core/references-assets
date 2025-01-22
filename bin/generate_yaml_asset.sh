@@ -507,7 +507,13 @@ do
         continue
     fi
 
-    ! [ -f assets/igenomes/${species}/${genome}/${build}.yml ] && echo "  vcf:" >> assets/igenomes/${species}/${genome}/${build}.yml
+    if ! [ -f assets/igenomes/${species}/${genome}/${build}.yml ]; then
+        echo "- genome: \"${build}\"" > assets/igenomes/${species}/${genome}/${build}.yml
+        echo "  source: \"${genome}\"" >> assets/igenomes/${species}/${genome}/${build}.yml
+        echo "  species: \"${species}\"" >> assets/igenomes/${species}/${genome}/${build}.yml
+        echo "  vcf:" >> assets/igenomes/${species}/${genome}/${build}.yml
+    fi
+
     ! grep -q vcf assets/igenomes/${species}/${genome}/${build}.yml && echo "  vcf:" >> assets/igenomes/${species}/${genome}/${build}.yml
 
     echo "    ${vcf_category}:" >> assets/igenomes/${species}/${genome}/${build}.yml
