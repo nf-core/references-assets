@@ -23,5 +23,7 @@
       vcf: "s3://ngi-igenomes/igenomes/Mus_musculus/Ensembl/GRCm38/Annotation/Variation/Mus_musculus.vcf"
     known_indels:
       vcf: "s3://ngi-igenomes/igenomes/Mus_musculus/Ensembl/GRCm38/MouseGenomeProject/mgp.v5.merged.indels.dbSNP142.normed.vcf.gz"
+      vcf_tbi: "s3://ngi-igenomes/igenomes/Mus_musculus/Ensembl/GRCm38/MouseGenomeProject/mgp.v5.merged.indels.dbSNP142.normed.vcf.gz.tbi"
     known_snps:
       vcf: "s3://ngi-igenomes/igenomes/Mus_musculus/Ensembl/GRCm38/MouseGenomeProject/mgp.v5.merged.snps_all.dbSNP142.vcf.gz"
+      vcf_tbi: "s3://ngi-igenomes/igenomes/Mus_musculus/Ensembl/GRCm38/MouseGenomeProject/mgp.v5.merged.snps_all.dbSNP142.vcf.gz.tbi"

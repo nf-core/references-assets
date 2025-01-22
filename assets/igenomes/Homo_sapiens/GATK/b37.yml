@@ -7,6 +7,7 @@
       vcf: "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/b37/1000G_phase1.snps.high_confidence.b37.vcf.gz"
     known_snps:
       vcf: "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/b37/1000G_phase3_v4_20130502.sites.vcf.gz"
+      vcf_tbi: "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/b37/1000G_phase3_v4_20130502.sites.vcf.gz.tbi"
     other:
       vcf: "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/b37/CEUTrio.HiSeq.WGS.b37.NA12878.vcf.gz"
     other:
@@ -27,3 +28,4 @@
       vcf: "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/b37/hapmap_3.3.b37.vcf.gz"
     hapmap:
       vcf: "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/b37/hapmap_3.3_b37_pop_stratified_af.vcf.gz"
+      vcf_tbi: "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/b37/hapmap_3.3_b37_pop_stratified_af.vcf.gz.tbi"

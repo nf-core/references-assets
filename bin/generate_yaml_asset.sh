@@ -513,6 +513,9 @@ do
     echo "    ${vcf_category}:" >> assets/igenomes/${species}/${genome}/${build}.yml
     echo "      vcf: \"${i}\"" >> assets/igenomes/${species}/${genome}/${build}.yml
 
+    grep -q ${i}.idx manifest.txt && echo "      vcf_idx: \"${i}.idx\"" >> assets/igenomes/${species}/${genome}/${build}.yml
+    grep -q ${i}.tbi manifest.txt && echo "      vcf_tbi: \"${i}.tbi\"" >> assets/igenomes/${species}/${genome}/${build}.yml
+
     if [[ ${source_vcf} = "unknown" ]]; then
         continue
     fi

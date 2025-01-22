@@ -23,3 +23,4 @@
       vcf: "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/hg19/hapmap_3.3.hg19.sites.vcf.gz"
     hapmap:
       vcf: "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/hg19/hapmap_3.3_hg19_pop_stratified_af.vcf.gz"
+      vcf_tbi: "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/hg19/hapmap_3.3_hg19_pop_stratified_af.vcf.gz.tbi"
