@@ -5,7 +5,10 @@
   vcf:
     dbsnp:
       vcf: "https://raw.githubusercontent.com/nf-core/test-datasets/modules/data/genomics/homo_sapiens/genome/vcf/dbsnp_146.hg38.vcf.gz"
+      vcf_source: "GATK_BUNDLE"
     known_indels:
       vcf: "https://raw.githubusercontent.com/nf-core/test-datasets/modules/data/genomics/homo_sapiens/genome/vcf/mills_and_1000G.indels.vcf.gz"
+      vcf_source: "GATK_BUNDLE"
     known_snps:
       vcf: "https://raw.githubusercontent.com/nf-core/test-datasets/modules/data/genomics/homo_sapiens/genome/vcf/gnomAD.r2.1.1.vcf.gz"
+      vcf_source: "GATK_BUNDLE"
