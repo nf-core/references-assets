@@ -18,8 +18,6 @@
   genome_size_xml: "s3://ngi-igenomes/igenomes/Bos_taurus/Ensembl/UMD3.1/Sequence/WholeGenomeFasta/GenomeSize.xml"
   hairpin_fasta: "s3://ngi-igenomes/igenomes/Bos_taurus/Ensembl/UMD3.1/Annotation/SmallRNA/hairpin.fa"
   mature_fasta: "s3://ngi-igenomes/igenomes/Bos_taurus/Ensembl/UMD3.1/Annotation/SmallRNA/mature.fa"
-- genome: "UMD3.1"
-  source: "Ensembl"
-  species: "Bos_taurus"
-  source_vcf: "unknown"
-  vcf: "s3://ngi-igenomes/igenomes/Bos_taurus/Ensembl/UMD3.1/Annotation/Variation/Bos_taurus.vcf"
+  vcf:
+    known_snps:
+      vcf: "s3://ngi-igenomes/igenomes/Bos_taurus/Ensembl/UMD3.1/Annotation/Variation/Bos_taurus.vcf"

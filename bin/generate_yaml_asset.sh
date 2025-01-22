@@ -65,7 +65,7 @@ echo "Number of files in manifest: $total_files"
 cp manifest.txt leftover_manifest.txt
 
 # Remove existing assets
-rm -rf igenomes/
+rm -rf assets/igenomes/
 
 # Generate base info in species/genome/build.yml
 
@@ -87,13 +87,13 @@ do
     genome=$(echo $i | cut -d "/" -f 6)
     build=$(echo $i | cut -d "/" -f 7)
 
-    mkdir -p igenomes/${species}/${genome}
+    mkdir -p assets/igenomes/${species}/${genome}
 
-    echo "- genome: \"${build}\"" > igenomes/${species}/${genome}/${build}.yml
-    echo "  fasta: \"${i::-4}\"" >> igenomes/${species}/${genome}/${build}.yml
-    echo "  source: \"${genome}\"" >> igenomes/${species}/${genome}/${build}.yml
-    echo "  species: \"${species}\"" >> igenomes/${species}/${genome}/${build}.yml
-    echo "  fasta_fai: \"${i}\"" >> igenomes/${species}/${genome}/${build}.yml
+    echo "- genome: \"${build}\"" > assets/igenomes/${species}/${genome}/${build}.yml
+    echo "  fasta: \"${i::-4}\"" >> assets/igenomes/${species}/${genome}/${build}.yml
+    echo "  source: \"${genome}\"" >> assets/igenomes/${species}/${genome}/${build}.yml
+    echo "  species: \"${species}\"" >> assets/igenomes/${species}/${genome}/${build}.yml
+    echo "  fasta_fai: \"${i}\"" >> assets/igenomes/${species}/${genome}/${build}.yml
 done
 
 # All source README
@@ -107,7 +107,7 @@ do
     genome=$(echo $i | cut -d "/" -f 6)
     build=$(echo $i | cut -d "/" -f 7)
 
-    echo "  readme: \"${i}\"" >> igenomes/${species}/${genome}/${build}.yml
+    echo "  readme: \"${i}\"" >> assets/igenomes/${species}/${genome}/${build}.yml
 done
 
 # All source gtf (removing the onces coming from gencode)
@@ -121,7 +121,7 @@ do
     genome=$(echo $i | cut -d "/" -f 6)
     build=$(echo $i | cut -d "/" -f 7)
 
-    echo "  gtf: \"${i}\"" >> igenomes/${species}/${genome}/${build}.yml
+    echo "  gtf: \"${i}\"" >> assets/igenomes/${species}/${genome}/${build}.yml
 done
 
 # All source fasta.dict
@@ -135,7 +135,7 @@ do
     genome=$(echo $i | cut -d "/" -f 6)
     build=$(echo $i | cut -d "/" -f 7)
 
-    echo "  fasta_dict: \"${i}\"" >> igenomes/${species}/${genome}/${build}.yml
+    echo "  fasta_dict: \"${i}\"" >> assets/igenomes/${species}/${genome}/${build}.yml
 done
 
 # All source genes.bed
@@ -149,7 +149,7 @@ do
     genome=$(echo $i | cut -d "/" -f 6)
     build=$(echo $i | cut -d "/" -f 7)
 
-    echo "  genes_bed: \"${i}\"" >> igenomes/${species}/${genome}/${build}.yml
+    echo "  genes_bed: \"${i}\"" >> assets/igenomes/${species}/${genome}/${build}.yml
 done
 
 # All source BowtieIndex
@@ -163,7 +163,7 @@ do
     genome=$(echo $i | cut -d "/" -f 6)
     build=$(echo $i | cut -d "/" -f 7)
 
-    echo "  bowtie1_index: \"${i}/\"" >> igenomes/${species}/${genome}/${build}.yml
+    echo "  bowtie1_index: \"${i}/\"" >> assets/igenomes/${species}/${genome}/${build}.yml
 done
 
 # All source Bowtie2Index
@@ -177,7 +177,7 @@ do
     genome=$(echo $i | cut -d "/" -f 6)
     build=$(echo $i | cut -d "/" -f 7)
 
-    echo "  bowtie2_index: \"${i}/\"" >> igenomes/${species}/${genome}/${build}.yml
+    echo "  bowtie2_index: \"${i}/\"" >> assets/igenomes/${species}/${genome}/${build}.yml
 done
 
 # All source BWAIndex (we have version0.6.0, version0.5.x, and no version specified)
@@ -193,8 +193,8 @@ do
 
     # Remove existing bwamem1_index if present
     # So that we only keep the latest version
-    sed -i '\|bwamem1_index|d' igenomes/${species}/${genome}/${build}.yml
-    echo "  bwamem1_index: \"${i}/\"" >> igenomes/${species}/${genome}/${build}.yml
+    sed -i '\|bwamem1_index|d' assets/igenomes/${species}/${genome}/${build}.yml
+    echo "  bwamem1_index: \"${i}/\"" >> assets/igenomes/${species}/${genome}/${build}.yml
 done
 
 # All source BWAmem2mem
@@ -208,7 +208,7 @@ do
     genome=$(echo $i | cut -d "/" -f 6)
     build=$(echo $i | cut -d "/" -f 7)
 
-    echo "  bwamem2_index: \"${i}/\"" >> igenomes/${species}/${genome}/${build}.yml
+    echo "  bwamem2_index: \"${i}/\"" >> assets/igenomes/${species}/${genome}/${build}.yml
 done
 
 # All source Dragmap
@@ -222,7 +222,7 @@ do
     genome=$(echo $i | cut -d "/" -f 6)
     build=$(echo $i | cut -d "/" -f 7)
 
-    echo "  dragmap_hashtable: \"${i}/\"" >> igenomes/${species}/${genome}/${build}.yml
+    echo "  dragmap_hashtable: \"${i}/\"" >> assets/igenomes/${species}/${genome}/${build}.yml
 done
 
 # All source BismarkIndex
@@ -236,7 +236,7 @@ do
     genome=$(echo $i | cut -d "/" -f 6)
     build=$(echo $i | cut -d "/" -f 7)
 
-    echo "  bismark_index: \"${i}/\"" >> igenomes/${species}/${genome}/${build}.yml
+    echo "  bismark_index: \"${i}/\"" >> assets/igenomes/${species}/${genome}/${build}.yml
 done
 
 # All source star Index
@@ -250,7 +250,7 @@ do
     genome=$(echo $i | cut -d "/" -f 6)
     build=$(echo $i | cut -d "/" -f 7)
 
-    echo "  star_index: \"${i}/\"" >> igenomes/${species}/${genome}/${build}.yml
+    echo "  star_index: \"${i}/\"" >> assets/igenomes/${species}/${genome}/${build}.yml
 done
 
 # All source Chromosomes fasta
@@ -264,7 +264,7 @@ do
     genome=$(echo $i | cut -d "/" -f 6)
     build=$(echo $i | cut -d "/" -f 7)
 
-    echo "  chromosomes_fasta: \"${i}/\"" >> igenomes/${species}/${genome}/${build}.yml
+    echo "  chromosomes_fasta: \"${i}/\"" >> assets/igenomes/${species}/${genome}/${build}.yml
 done
 
 # All source AbundantSequences fasta
@@ -278,7 +278,7 @@ do
     genome=$(echo $i | cut -d "/" -f 6)
     build=$(echo $i | cut -d "/" -f 7)
 
-    echo "  abundantsequences_fasta: \"${i}/\"" >> igenomes/${species}/${genome}/${build}.yml
+    echo "  abundantsequences_fasta: \"${i}/\"" >> assets/igenomes/${species}/${genome}/${build}.yml
 done
 
 # All source refFlat (removing the ones coming from gencode)
@@ -292,7 +292,7 @@ do
     genome=$(echo $i | cut -d "/" -f 6)
     build=$(echo $i | cut -d "/" -f 7)
 
-    echo "  genes_refflat: \"${i}\"" >> igenomes/${species}/${genome}/${build}.yml
+    echo "  genes_refflat: \"${i}\"" >> assets/igenomes/${species}/${genome}/${build}.yml
 done
 
 # All source refgene
@@ -306,7 +306,7 @@ do
     genome=$(echo $i | cut -d "/" -f 6)
     build=$(echo $i | cut -d "/" -f 7)
 
-    echo "  genes_refgene: \"${i}\"" >> igenomes/${species}/${genome}/${build}.yml
+    echo "  genes_refgene: \"${i}\"" >> assets/igenomes/${species}/${genome}/${build}.yml
 done
 
 # All source ChromInfo.txt
@@ -320,7 +320,7 @@ do
     genome=$(echo $i | cut -d "/" -f 6)
     build=$(echo $i | cut -d "/" -f 7)
 
-    echo "  chrom_info: \"${i}\"" >> igenomes/${species}/${genome}/${build}.yml
+    echo "  chrom_info: \"${i}\"" >> assets/igenomes/${species}/${genome}/${build}.yml
 done
 
 # All source GenomeSize.xml (removing the old ones)
@@ -334,7 +334,7 @@ do
     genome=$(echo $i | cut -d "/" -f 6)
     build=$(echo $i | cut -d "/" -f 7)
 
-    echo "  genome_size_xml: \"${i}\"" >> igenomes/${species}/${genome}/${build}.yml
+    echo "  genome_size_xml: \"${i}\"" >> assets/igenomes/${species}/${genome}/${build}.yml
 done
 
 # All source hairpin.fa
@@ -348,7 +348,7 @@ do
     genome=$(echo $i | cut -d "/" -f 6)
     build=$(echo $i | cut -d "/" -f 7)
 
-    echo "  hairpin_fasta: \"${i}\"" >> igenomes/${species}/${genome}/${build}.yml
+    echo "  hairpin_fasta: \"${i}\"" >> assets/igenomes/${species}/${genome}/${build}.yml
 done
 
 # All source mature.fa
@@ -362,13 +362,101 @@ do
     genome=$(echo $i | cut -d "/" -f 6)
     build=$(echo $i | cut -d "/" -f 7)
 
-    echo "  mature_fasta: \"${i}\"" >> igenomes/${species}/${genome}/${build}.yml
+    echo "  mature_fasta: \"${i}\"" >> assets/igenomes/${species}/${genome}/${build}.yml
 done
 
 # All source vcf
 cat manifest.txt | grep "\.vcf" | grep -v "\.idx" | grep -v "\.tbi" | grep -v "\.md5" > tmp_vcf.txt
 
 echo "Populating assets for vcf"
+
+a_dbsnp=("s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/GRCh37/Annotation/GATKBundle/dbsnp_138.b37.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/GRCh38/Annotation/GATKBundle/beta/Homo_sapiens_assembly38.dbsnp.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/GRCh38/Annotation/GATKBundle/beta/Homo_sapiens_assembly38.dbsnp138.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/GRCh38/Annotation/GATKBundle/dbsnp_138.hg38.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/GRCh38/Annotation/GATKBundle/dbsnp_144.hg38.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/GRCh38/Annotation/GATKBundle/dbsnp_146.hg38.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/b37/dbsnp_138.b37.excluding_sites_after_129.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/b37/dbsnp_138.b37.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/hg19/dbsnp_138.hg19.excluding_sites_after_129.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/hg19/dbsnp_138.hg19.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/hg38/beta/Homo_sapiens_assembly38.dbsnp.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/hg38/beta/Homo_sapiens_assembly38.dbsnp138.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/hg38/dbsnp_138.hg38.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/hg38/dbsnp_144.hg38.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/hg38/dbsnp_146.hg38.vcf.gz")
+
+a_known_indels=("s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/GRCh37/Annotation/GATKBundle/1000G_phase1.indels.b37.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/GRCh37/Annotation/GATKBundle/Mills_and_1000G_gold_standard.indels.b37.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/GRCh38/Annotation/GATKBundle/Mills_and_1000G_gold_standard.indels.hg38.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/GRCh38/Annotation/GATKBundle/beta/Homo_sapiens_assembly38.known_indels.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/b37/1000G_phase1.indels.b37.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/b37/Mills_and_1000G_gold_standard.indels.b37.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/hg19/1000G_phase1.indels.hg19.sites.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/hg19/Mills_and_1000G_gold_standard.indels.hg19.sites.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/hg38/Mills_and_1000G_gold_standard.indels.hg38.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/hg38/beta/Homo_sapiens_assembly38.known_indels.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Mus_musculus/Ensembl/GRCm38/MouseGenomeProject/mgp.v5.merged.indels.dbSNP142.normed.vcf.gz")
+
+a_known_snps=("s3://ngi-igenomes/igenomes/Bos_taurus/Ensembl/UMD3.1/Annotation/Variation/Bos_taurus.vcf"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/Ensembl/GRCh37/Annotation/Variation/Homo_sapiens.vcf"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/GRCh37/Annotation/GATKBundle/1000G_omni2.5.b37.vcf.gz"    
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/GRCh37/Annotation/GATKBundle/1000G_phase1.snps.high_confidence.b37.vcf.gz"    
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/GRCh37/Annotation/GATKBundle/1000G_phase3_v4_20130502.sites.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/GRCh38/Annotation/GATKBundle/1000G_omni2.5.hg38.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/GRCh38/Annotation/GATKBundle/1000G_phase1.snps.high_confidence.hg38.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/b37/1000G_omni2.5.b37.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/b37/1000G_phase1.snps.high_confidence.b37.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/b37/1000G_phase3_v4_20130502.sites.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/hg19/1000G_omni2.5.hg19.sites.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/hg19/1000G_phase1.snps.high_confidence.hg19.sites.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/hg38/1000G_omni2.5.hg38.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/hg38/1000G_phase1.snps.high_confidence.hg38.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/UCSC/hg19/Annotation/Variation/snp142.vcf"
+    "s3://ngi-igenomes/igenomes/Mus_musculus/Ensembl/GRCm38/Annotation/Variation/Mus_musculus.vcf"
+    "s3://ngi-igenomes/igenomes/Mus_musculus/Ensembl/GRCm38/MouseGenomeProject/mgp.v5.merged.snps_all.dbSNP142.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Rattus_norvegicus/Ensembl/Rnor_5.0/Annotation/Variation/Rattus_norvegicus.vcf"
+    "s3://ngi-igenomes/igenomes/Rattus_norvegicus/Ensembl/Rnor_6.0/Annotation/Variation/Rattus_norvegicus.vcf"
+    "s3://ngi-igenomes/igenomes/Sus_scrofa/Ensembl/Sscrofa10.2/Annotation/Variation/Sus_scrofa.vcf")
+
+a_germline_resource=("s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/GRCh37/Annotation/GATKBundle/af-only-gnomad.raw.sites.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/GRCh37/Annotation/GermlineResource/gnomAD.r2.1.1.GRCh37.PASS.AC.AF.only.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/GRCh38/Annotation/GATKBundle/af-only-gnomad.hg38.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/GRCh38/Annotation/GermlineResource/gnomAD.r2.1.1.GRCh38.PASS.AC.AF.only.vcf.gz")
+
+a_hapmap=("s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/GRCh37/Annotation/GATKBundle/hapmap_3.3.b37.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/GRCh38/Annotation/GATKBundle/hapmap_3.3.hg38.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/GRCh38/Annotation/GATKBundle/hapmap_3.3_grch38_pop_stratified_af.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/b37/hapmap_3.3.b37.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/b37/hapmap_3.3_b37_pop_stratified_af.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/hg19/hapmap_3.3.hg19.sites.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/hg19/hapmap_3.3_hg19_pop_stratified_af.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/hg38/hapmap_3.3.hg38.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/hg38/hapmap_3.3_grch38_pop_stratified_af.vcf.gz")
+
+a_pon=("s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/GRCh37/Annotation/GermlineResource/dummy_PON.gnomAD.GRCh37.WGS.AF.GT.01.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/GRCh38/Annotation/GATKBundle/1000g_pon.hg38.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/GRCh38/Annotation/GermlineResource/dummy_PON.gnomAD.GRCh38.WGS.AF.GT.01.vcf.gz")
+
+a_other=("s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/b37/CEUTrio.HiSeq.WGS.b37.NA12878.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/b37/CEUTrio.HiSeq.WGS.b37.bestPractices.b37.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/b37/NA12878.HiSeq.WGS.bwa.cleaned.raw.subset.b37.sites.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/b37/NA12878.HiSeq.WGS.bwa.cleaned.raw.subset.b37.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/b37/NA12878.knowledgebase.snapshot.20131119.b37.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/GRCh38/Annotation/GATKBundle/Axiom_Exome_Plus.genotypes.all_populations.poly.hg38.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/GRCh38/Annotation/GATKBundle/beta/Homo_sapiens_assembly38.variantEvalGoldStandard.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/GRCh38/Annotation/GATKBundle/beta/NISTIntegratedCalls.hg38.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/hg19/CEUTrio.HiSeq.WGS.b37.bestPractices.hg19.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/hg19/NA12878.HiSeq.WGS.bwa.cleaned.raw.subset.hg19.sites.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/hg19/NA12878.HiSeq.WGS.bwa.cleaned.raw.subset.hg19.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/hg19/NA12878.knowledgebase.snapshot.20131119.hg19.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/hg38/Axiom_Exome_Plus.genotypes.all_populations.poly.hg38.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/hg38/beta/Homo_sapiens_assembly38.variantEvalGoldStandard.vcf.gz"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/hg38/beta/NISTIntegratedCalls.hg38.vcf.gz")
+
+a_skip=("s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/GRCh37/Annotation/GATKBundle/dbsnp_138.b37.vcf"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/GRCh37/Annotation/GATKBundle/1000G_phase1.indels.b37.vcf"
+    "s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/GRCh37/Annotation/GATKBundle/Mills_and_1000G_gold_standard.indels.b37.vcf")
 
 for i in `cat tmp_vcf.txt`;
 do
@@ -379,23 +467,63 @@ do
     filename=$(basename $i)
     if [ -z "${source_vcf}" ]; then
         source_vcf="unknown"
+    elif [ "${source_vcf}" == "GermlineResource" ]; then
+        source_vcf="GATKBundle"
     elif [ "${source_vcf}" == "Variation" ]; then
         source_vcf="unknown"
     elif [ "${source_vcf}" == "${filename}" ]; then
         source_vcf="unknown"
     fi
 
-    echo "- genome: \"${build}\"" >> igenomes/${species}/${genome}/${build}.yml
-    echo "  source: \"${genome}\"" >> igenomes/${species}/${genome}/${build}.yml
-    echo "  species: \"${species}\"" >> igenomes/${species}/${genome}/${build}.yml
-    echo "  source_vcf: \"${source_vcf}\"" >> igenomes/${species}/${genome}/${build}.yml
-    echo "  vcf: \"${i}\"" >> igenomes/${species}/${genome}/${build}.yml
+    if [[ ${a_skip[@]} =~ $i ]]
+    then
+        echo "${i}"
+        echo "skipping"
+        continue
+    elif [[ ${a_dbsnp[@]} =~ $i ]]
+    then
+        vcf_category="dbsnp"
+    elif [[ ${a_known_indels[@]} =~ $i ]]
+    then
+        vcf_category="known_indels"
+    elif [[ ${a_known_snps[@]} =~ $i ]]
+    then
+        vcf_category="known_snps"
+    elif [[ ${a_germline_resource[@]} =~ $i ]]
+    then
+        vcf_category="germline_resource"
+    elif [[ ${a_hapmap[@]} =~ $i ]]
+    then
+        vcf_category="hapmap"
+    elif [[ ${a_pon[@]} =~ $i ]]
+    then
+        vcf_category="pon"
+    elif [[ ${a_other[@]} =~ $i ]]
+    then
+        vcf_category="other"
+    else
+        echo "${i}"
+        echo "not categorised"
+        continue
+    fi
+
+    ! [ -f assets/igenomes/${species}/${genome}/${build}.yml ] && echo "  vcf:" >> assets/igenomes/${species}/${genome}/${build}.yml
+    ! grep -q vcf assets/igenomes/${species}/${genome}/${build}.yml && echo "  vcf:" >> assets/igenomes/${species}/${genome}/${build}.yml
+
+    echo "    ${vcf_category}:" >> assets/igenomes/${species}/${genome}/${build}.yml
+    echo "      vcf: \"${i}\"" >> assets/igenomes/${species}/${genome}/${build}.yml
+
+    if [[ ${source_vcf} = "unknown" ]]; then
+        continue
+    fi
+
+    echo "      vcf_source: \"${source_vcf}\"" >> assets/igenomes/${species}/${genome}/${build}.yml
 done
 
 echo "Fixing /Homo_sapiens/GATK/GRCh37.yml name to Homo_sapiens/GATK/GRCh37decoy.yml"
 
 #  Homo_sapiens/GATK/GRCh37.yml should actually be Homo_sapiens/GATK/GRCh37decoy.yml
-mv igenomes/Homo_sapiens/GATK/GRCh37.yml igenomes/Homo_sapiens/GATK/GRCh37decoy.yml
+mv assets/igenomes/Homo_sapiens/GATK/GRCh37.yml assets/igenomes/Homo_sapiens/GATK/GRCh37decoy.yml
 
 echo "Deleting assets from manifest"
 

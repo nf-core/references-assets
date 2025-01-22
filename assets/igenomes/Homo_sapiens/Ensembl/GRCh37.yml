@@ -18,8 +18,6 @@
   genome_size_xml: "s3://ngi-igenomes/igenomes/Homo_sapiens/Ensembl/GRCh37/Sequence/WholeGenomeFasta/GenomeSize.xml"
   hairpin_fasta: "s3://ngi-igenomes/igenomes/Homo_sapiens/Ensembl/GRCh37/Annotation/SmallRNA/hairpin.fa"
   mature_fasta: "s3://ngi-igenomes/igenomes/Homo_sapiens/Ensembl/GRCh37/Annotation/SmallRNA/mature.fa"
-- genome: "GRCh37"
-  source: "Ensembl"
-  species: "Homo_sapiens"
-  source_vcf: "unknown"
-  vcf: "s3://ngi-igenomes/igenomes/Homo_sapiens/Ensembl/GRCh37/Annotation/Variation/Homo_sapiens.vcf"
+  vcf:
+    known_snps:
+      vcf: "s3://ngi-igenomes/igenomes/Homo_sapiens/Ensembl/GRCh37/Annotation/Variation/Homo_sapiens.vcf"
