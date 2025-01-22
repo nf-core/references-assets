@@ -1,5 +1,7 @@
 - genome: "testdata.GRCh38_chr22"
   fasta: "https://raw.githubusercontent.com/nf-core/test-datasets/modules/data/genomics/homo_sapiens/genome/genome.fasta"
+  source: "nf-core/references"
+  species: "Homo_sapiens"
   vcf:
     dbsnp:
       vcf: "https://raw.githubusercontent.com/nf-core/test-datasets/modules/data/genomics/homo_sapiens/genome/vcf/dbsnp_146.hg38.vcf.gz"
