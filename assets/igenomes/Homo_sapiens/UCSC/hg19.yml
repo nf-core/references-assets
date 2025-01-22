@@ -19,8 +19,6 @@
   genome_size_xml: "s3://ngi-igenomes/igenomes/Homo_sapiens/UCSC/hg19/Sequence/WholeGenomeFasta/GenomeSize.xml"
   hairpin_fasta: "s3://ngi-igenomes/igenomes/Homo_sapiens/UCSC/hg19/Annotation/SmallRNA/hairpin.fa"
   mature_fasta: "s3://ngi-igenomes/igenomes/Homo_sapiens/UCSC/hg19/Annotation/SmallRNA/mature.fa"
-- genome: "hg19"
-  source: "UCSC"
-  species: "Homo_sapiens"
-  source_vcf: "unknown"
-  vcf: "s3://ngi-igenomes/igenomes/Homo_sapiens/UCSC/hg19/Annotation/Variation/snp142.vcf"
+  vcf:
+    known_snps:
+      vcf: "s3://ngi-igenomes/igenomes/Homo_sapiens/UCSC/hg19/Annotation/Variation/snp142.vcf"
