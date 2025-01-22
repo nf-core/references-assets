@@ -1,0 +1,20 @@
+- genome: "GRCh38_chr22"
+  source: "nf-core/references"
+  species: "Homo_sapiens"
+  fasta: s3://nf-core-references/test_data/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Sequence/WholeGenomeFasta/genome.fasta
+  fasta_fai: s3://nf-core-references/test_data/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Sequence/WholeGenomeFasta/genome.fasta.fai
+  fasta_dict: s3://nf-core-references/test_data/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Sequence/WholeGenomeFasta/genome.dict
+  bwamem1_index: s3://nf-core-references/test_data/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Sequence/BWAIndex/version0.7.18/
+  bwamem2_index: s3://nf-core-references/test_data/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Sequence/BWAmem2Index/version2.2.1/
+  dragmap_hashtable: s3://nf-core-references/test_data/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Sequence/dragmap/version1.2.1/
+  intervals_bed: s3://nf-core-references/test_data/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Annotation/intervals/testdata.GRCh38_chr22.bed
+  vcf:
+    dbsnp:
+      vcf: s3://nf-core-references/test_data/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Annotation/GATK_BUNDLE/dbsnp_146.hg38.vcf.gz
+      vcf_tbi: s3://nf-core-references/test_data/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Annotation/GATK_BUNDLE/dbsnp_146.hg38.vcf.gz.tbi
+    germline_resource:
+      vcf: s3://nf-core-references/test_data/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Annotation/GATK_BUNDLE/gnomAD.r2.1.1.vcf.gz
+      vcf_tbi: s3://nf-core-references/test_data/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Annotation/GATK_BUNDLE/gnomAD.r2.1.1.vcf.gz.tbi
+    known_indels:
+      vcf: s3://nf-core-references/test_data/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Annotation/GATK_BUNDLE/mills_and_1000G.indels.vcf.gz
+      vcf_tbi: s3://nf-core-references/test_data/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Annotation/GATK_BUNDLE/mills_and_1000G.indels.vcf.gz.tbi
