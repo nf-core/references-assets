@@ -8,10 +8,16 @@
   bwamem2_index: s3://nf-core-references/test_data/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Sequence/BWAmem2Index/version2.2.1/
   dragmap_hashtable: s3://nf-core-references/test_data/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Sequence/dragmap/version1.2.1/
   intervals_bed: s3://nf-core-references/test_data/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Annotation/intervals/testdata.GRCh38_chr22.bed
+  ngscheckmate_bed: s3://nf-core-references/test_data/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Annotation/NGSCheckMate/SNP_GRCh38_hg38_wChr.bed
+  snpeff_db: 'WBcel235.105'
+  vep_cache_version: '113'
+  vep_genome: 'WBcel235'
+  vep_species: 'caenorhabditis_elegans'
   vcf:
     dbsnp:
       vcf: s3://nf-core-references/test_data/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Annotation/GATK_BUNDLE/dbsnp_146.hg38.vcf.gz
       vcf_tbi: s3://nf-core-references/test_data/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Annotation/GATK_BUNDLE/dbsnp_146.hg38.vcf.gz.tbi
+      vcf_vqsr: '--resource:dbsnp,known=false,training=true,truth=false,prior=2.0 dbsnp_146.hg38.vcf.gz'
     germline_resource:
       vcf: s3://nf-core-references/test_data/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Annotation/GATK_BUNDLE/gnomAD.r2.1.1.vcf.gz
       vcf_tbi: s3://nf-core-references/test_data/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Annotation/GATK_BUNDLE/gnomAD.r2.1.1.vcf.gz.tbi
