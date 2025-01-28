@@ -86,26 +86,25 @@ do
     species=$(echo $i | cut -d "/" -f 5)
     genome=$(echo $i | cut -d "/" -f 6)
     build=$(echo $i | cut -d "/" -f 7)
+    build_name="${build}.yml"
 
     if [[ $build =~ ^build ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $build =~ ^EF ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $species =~ ^Enterobacteriophage_lambda ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $species =~ ^PhiX ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     fi
-
-    echo "Building ${build}"
 
     mkdir -p assets/igenomes/${genome}
 
-    echo "- genome: \"${build}\"" > assets/igenomes/${genome}/${build}.yml
-    echo "  fasta: \"${i::-4}\"" >> assets/igenomes/${genome}/${build}.yml
-    echo "  source: \"${genome}\"" >> assets/igenomes/${genome}/${build}.yml
-    echo "  species: \"${species}\"" >> assets/igenomes/${genome}/${build}.yml
-    echo "  fasta_fai: \"${i}\"" >> assets/igenomes/${genome}/${build}.yml
+    echo "- genome: \"${build}\"" > assets/igenomes/${genome}/${build_name}
+    echo "  fasta: \"${i::-4}\"" >> assets/igenomes/${genome}/${build_name}
+    echo "  source: \"${genome}\"" >> assets/igenomes/${genome}/${build_name}
+    echo "  species: \"${species}\"" >> assets/igenomes/${genome}/${build_name}
+    echo "  fasta_fai: \"${i}\"" >> assets/igenomes/${genome}/${build_name}
 done
 
 # All source README
@@ -118,18 +117,19 @@ do
     species=$(echo $i | cut -d "/" -f 5)
     genome=$(echo $i | cut -d "/" -f 6)
     build=$(echo $i | cut -d "/" -f 7)
+    build_name="${build}.yml"
 
     if [[ $build =~ ^build ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $build =~ ^EF ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $species =~ ^Enterobacteriophage_lambda ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $species =~ ^PhiX ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     fi
 
-    echo "  readme: \"${i}\"" >> assets/igenomes/${genome}/${build}.yml
+    echo "  readme: \"${i}\"" >> assets/igenomes/${genome}/${build_name}
 done
 
 # All source gtf (removing the onces coming from gencode)
@@ -142,18 +142,19 @@ do
     species=$(echo $i | cut -d "/" -f 5)
     genome=$(echo $i | cut -d "/" -f 6)
     build=$(echo $i | cut -d "/" -f 7)
+    build_name="${build}.yml"
 
     if [[ $build =~ ^build ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $build =~ ^EF ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $species =~ ^Enterobacteriophage_lambda ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $species =~ ^PhiX ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     fi
 
-    echo "  gtf: \"${i}\"" >> assets/igenomes/${genome}/${build}.yml
+    echo "  gtf: \"${i}\"" >> assets/igenomes/${genome}/${build_name}
 done
 
 # All source fasta.dict
@@ -166,18 +167,19 @@ do
     species=$(echo $i | cut -d "/" -f 5)
     genome=$(echo $i | cut -d "/" -f 6)
     build=$(echo $i | cut -d "/" -f 7)
+    build_name="${build}.yml"
 
     if [[ $build =~ ^build ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $build =~ ^EF ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $species =~ ^Enterobacteriophage_lambda ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $species =~ ^PhiX ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     fi
 
-    echo "  fasta_dict: \"${i}\"" >> assets/igenomes/${genome}/${build}.yml
+    echo "  fasta_dict: \"${i}\"" >> assets/igenomes/${genome}/${build_name}
 done
 
 # All source genes.bed
@@ -190,18 +192,19 @@ do
     species=$(echo $i | cut -d "/" -f 5)
     genome=$(echo $i | cut -d "/" -f 6)
     build=$(echo $i | cut -d "/" -f 7)
+    build_name="${build}.yml"
 
     if [[ $build =~ ^build ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $build =~ ^EF ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $species =~ ^Enterobacteriophage_lambda ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $species =~ ^PhiX ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     fi
 
-    echo "  genes_bed: \"${i}\"" >> assets/igenomes/${genome}/${build}.yml
+    echo "  genes_bed: \"${i}\"" >> assets/igenomes/${genome}/${build_name}
 done
 
 # All source BowtieIndex
@@ -214,18 +217,19 @@ do
     species=$(echo $i | cut -d "/" -f 5)
     genome=$(echo $i | cut -d "/" -f 6)
     build=$(echo $i | cut -d "/" -f 7)
+    build_name="${build}.yml"
 
     if [[ $build =~ ^build ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $build =~ ^EF ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $species =~ ^Enterobacteriophage_lambda ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $species =~ ^PhiX ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     fi
 
-    echo "  bowtie1_index: \"${i}/\"" >> assets/igenomes/${genome}/${build}.yml
+    echo "  bowtie1_index: \"${i}/\"" >> assets/igenomes/${genome}/${build_name}
 done
 
 # All source Bowtie2Index
@@ -238,18 +242,19 @@ do
     species=$(echo $i | cut -d "/" -f 5)
     genome=$(echo $i | cut -d "/" -f 6)
     build=$(echo $i | cut -d "/" -f 7)
+    build_name="${build}.yml"
 
     if [[ $build =~ ^build ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $build =~ ^EF ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $species =~ ^Enterobacteriophage_lambda ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $species =~ ^PhiX ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     fi
 
-    echo "  bowtie2_index: \"${i}/\"" >> assets/igenomes/${genome}/${build}.yml
+    echo "  bowtie2_index: \"${i}/\"" >> assets/igenomes/${genome}/${build_name}
 done
 
 # All source BWAIndex (we have version0.6.0, version0.5.x, and no version specified)
@@ -262,21 +267,22 @@ do
     species=$(echo $i | cut -d "/" -f 5)
     genome=$(echo $i | cut -d "/" -f 6)
     build=$(echo $i | cut -d "/" -f 7)
+    build_name="${build}.yml"
 
     if [[ $build =~ ^build ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $build =~ ^EF ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $species =~ ^Enterobacteriophage_lambda ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $species =~ ^PhiX ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     fi
 
     # Remove existing bwamem1_index if present
     # So that we only keep the latest version
-    sed -i '\|bwamem1_index|d' assets/igenomes/${genome}/${build}.yml
-    echo "  bwamem1_index: \"${i}/\"" >> assets/igenomes/${genome}/${build}.yml
+    sed -i '\|bwamem1_index|d' assets/igenomes/${genome}/${build_name}
+    echo "  bwamem1_index: \"${i}/\"" >> assets/igenomes/${genome}/${build_name}
 done
 
 # All source BWAmem2mem
@@ -289,18 +295,19 @@ do
     species=$(echo $i | cut -d "/" -f 5)
     genome=$(echo $i | cut -d "/" -f 6)
     build=$(echo $i | cut -d "/" -f 7)
+    build_name="${build}.yml"
 
     if [[ $build =~ ^build ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $build =~ ^EF ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $species =~ ^Enterobacteriophage_lambda ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $species =~ ^PhiX ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     fi
 
-    echo "  bwamem2_index: \"${i}/\"" >> assets/igenomes/${genome}/${build}.yml
+    echo "  bwamem2_index: \"${i}/\"" >> assets/igenomes/${genome}/${build_name}
 done
 
 # All source Dragmap
@@ -313,18 +320,19 @@ do
     species=$(echo $i | cut -d "/" -f 5)
     genome=$(echo $i | cut -d "/" -f 6)
     build=$(echo $i | cut -d "/" -f 7)
+    build_name="${build}.yml"
 
     if [[ $build =~ ^build ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $build =~ ^EF ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $species =~ ^Enterobacteriophage_lambda ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $species =~ ^PhiX ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     fi
 
-    echo "  dragmap_hashtable: \"${i}/\"" >> assets/igenomes/${genome}/${build}.yml
+    echo "  dragmap_hashtable: \"${i}/\"" >> assets/igenomes/${genome}/${build_name}
 done
 
 # All source BismarkIndex
@@ -337,18 +345,19 @@ do
     species=$(echo $i | cut -d "/" -f 5)
     genome=$(echo $i | cut -d "/" -f 6)
     build=$(echo $i | cut -d "/" -f 7)
+    build_name="${build}.yml"
 
     if [[ $build =~ ^build ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $build =~ ^EF ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $species =~ ^Enterobacteriophage_lambda ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $species =~ ^PhiX ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     fi
 
-    echo "  bismark_index: \"${i}/\"" >> assets/igenomes/${genome}/${build}.yml
+    echo "  bismark_index: \"${i}/\"" >> assets/igenomes/${genome}/${build_name}
 done
 
 # All source star Index
@@ -361,18 +370,19 @@ do
     species=$(echo $i | cut -d "/" -f 5)
     genome=$(echo $i | cut -d "/" -f 6)
     build=$(echo $i | cut -d "/" -f 7)
+    build_name="${build}.yml"
 
     if [[ $build =~ ^build ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $build =~ ^EF ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $species =~ ^Enterobacteriophage_lambda ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $species =~ ^PhiX ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     fi
 
-    echo "  star_index: \"${i}/\"" >> assets/igenomes/${genome}/${build}.yml
+    echo "  star_index: \"${i}/\"" >> assets/igenomes/${genome}/${build_name}
 done
 
 # All source Chromosomes fasta
@@ -385,18 +395,19 @@ do
     species=$(echo $i | cut -d "/" -f 5)
     genome=$(echo $i | cut -d "/" -f 6)
     build=$(echo $i | cut -d "/" -f 7)
+    build_name="${build}.yml"
 
     if [[ $build =~ ^build ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $build =~ ^EF ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $species =~ ^Enterobacteriophage_lambda ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $species =~ ^PhiX ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     fi
 
-    echo "  chromosomes_fasta: \"${i}/\"" >> assets/igenomes/${genome}/${build}.yml
+    echo "  chromosomes_fasta: \"${i}/\"" >> assets/igenomes/${genome}/${build_name}
 done
 
 # All source AbundantSequences fasta
@@ -409,18 +420,19 @@ do
     species=$(echo $i | cut -d "/" -f 5)
     genome=$(echo $i | cut -d "/" -f 6)
     build=$(echo $i | cut -d "/" -f 7)
+    build_name="${build}.yml"
 
     if [[ $build =~ ^build ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $build =~ ^EF ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $species =~ ^Enterobacteriophage_lambda ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $species =~ ^PhiX ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     fi
 
-    echo "  abundantsequences_fasta: \"${i}/\"" >> assets/igenomes/${genome}/${build}.yml
+    echo "  abundantsequences_fasta: \"${i}/\"" >> assets/igenomes/${genome}/${build_name}
 done
 
 # All source refFlat (removing the ones coming from gencode)
@@ -433,18 +445,19 @@ do
     species=$(echo $i | cut -d "/" -f 5)
     genome=$(echo $i | cut -d "/" -f 6)
     build=$(echo $i | cut -d "/" -f 7)
+    build_name="${build}.yml"
 
     if [[ $build =~ ^build ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $build =~ ^EF ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $species =~ ^Enterobacteriophage_lambda ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $species =~ ^PhiX ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     fi
 
-    echo "  genes_refflat: \"${i}\"" >> assets/igenomes/${genome}/${build}.yml
+    echo "  genes_refflat: \"${i}\"" >> assets/igenomes/${genome}/${build_name}
 done
 
 # All source refgene
@@ -457,18 +470,19 @@ do
     species=$(echo $i | cut -d "/" -f 5)
     genome=$(echo $i | cut -d "/" -f 6)
     build=$(echo $i | cut -d "/" -f 7)
+    build_name="${build}.yml"
 
     if [[ $build =~ ^build ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $build =~ ^EF ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $species =~ ^Enterobacteriophage_lambda ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $species =~ ^PhiX ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     fi
 
-    echo "  genes_refgene: \"${i}\"" >> assets/igenomes/${genome}/${build}.yml
+    echo "  genes_refgene: \"${i}\"" >> assets/igenomes/${genome}/${build_name}
 done
 
 # All source ChromInfo.txt
@@ -481,18 +495,19 @@ do
     species=$(echo $i | cut -d "/" -f 5)
     genome=$(echo $i | cut -d "/" -f 6)
     build=$(echo $i | cut -d "/" -f 7)
+    build_name="${build}.yml"
 
     if [[ $build =~ ^build ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $build =~ ^EF ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $species =~ ^Enterobacteriophage_lambda ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $species =~ ^PhiX ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     fi
 
-    echo "  chrom_info: \"${i}\"" >> assets/igenomes/${genome}/${build}.yml
+    echo "  chrom_info: \"${i}\"" >> assets/igenomes/${genome}/${build_name}
 done
 
 # All source GenomeSize.xml (removing the old ones)
@@ -505,18 +520,19 @@ do
     species=$(echo $i | cut -d "/" -f 5)
     genome=$(echo $i | cut -d "/" -f 6)
     build=$(echo $i | cut -d "/" -f 7)
+    build_name="${build}.yml"
 
     if [[ $build =~ ^build ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $build =~ ^EF ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $species =~ ^Enterobacteriophage_lambda ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $species =~ ^PhiX ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     fi
 
-    echo "  genome_size_xml: \"${i}\"" >> assets/igenomes/${genome}/${build}.yml
+    echo "  genome_size_xml: \"${i}\"" >> assets/igenomes/${genome}/${build_name}
 done
 
 # All source hairpin.fa
@@ -529,18 +545,19 @@ do
     species=$(echo $i | cut -d "/" -f 5)
     genome=$(echo $i | cut -d "/" -f 6)
     build=$(echo $i | cut -d "/" -f 7)
+    build_name="${build}.yml"
 
     if [[ $build =~ ^build ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $build =~ ^EF ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $species =~ ^Enterobacteriophage_lambda ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $species =~ ^PhiX ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     fi
 
-    echo "  hairpin_fasta: \"${i}\"" >> assets/igenomes/${genome}/${build}.yml
+    echo "  hairpin_fasta: \"${i}\"" >> assets/igenomes/${genome}/${build_name}
 done
 
 # All source mature.fa
@@ -553,18 +570,19 @@ do
     species=$(echo $i | cut -d "/" -f 5)
     genome=$(echo $i | cut -d "/" -f 6)
     build=$(echo $i | cut -d "/" -f 7)
+    build_name="${build}.yml"
 
     if [[ $build =~ ^build ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $build =~ ^EF ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $species =~ ^Enterobacteriophage_lambda ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $species =~ ^PhiX ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     fi
 
-    echo "  mature_fasta: \"${i}\"" >> assets/igenomes/${genome}/${build}.yml
+    echo "  mature_fasta: \"${i}\"" >> assets/igenomes/${genome}/${build_name}
 done
 
 # All source vcf
@@ -666,24 +684,26 @@ do
     genome=$(echo $i | cut -d "/" -f 6)
     build=$(echo $i | cut -d "/" -f 7)
     source_vcf=$(echo $i | cut -d "/" -f 9)
+    build_name="${build}.yml"
+
     if [[ $build =~ ^build ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $build =~ ^EF ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $species =~ ^Enterobacteriophage_lambda ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     elif [[ $species =~ ^PhiX ]]; then
-        build="${species}_${build}"
+        build_name="${species}_${build}.yml"
     fi
 
-    filename=$(basename $i)
+    vcf_name=$(basename $i)
     if [ -z "${source_vcf}" ]; then
         source_vcf="unknown"
     elif [ "${source_vcf}" == "GermlineResource" ]; then
         source_vcf="GATKBundle"
     elif [ "${source_vcf}" == "Variation" ]; then
         source_vcf="unknown"
-    elif [ "${source_vcf}" == "${filename}" ]; then
+    elif [ "${source_vcf}" == "${vcf_name}" ]; then
         source_vcf="unknown"
     fi
 
@@ -719,26 +739,26 @@ do
         continue
     fi
 
-    if ! [ -f assets/igenomes/${genome}/${build}.yml ]; then
-        echo "- genome: \"${build}\"" > assets/igenomes/${genome}/${build}.yml
-        echo "  source: \"${genome}\"" >> assets/igenomes/${genome}/${build}.yml
-        echo "  species: \"${species}\"" >> assets/igenomes/${genome}/${build}.yml
-        echo "  vcf:" >> assets/igenomes/${genome}/${build}.yml
+    if ! [ -f assets/igenomes/${genome}/${build_name} ]; then
+        echo "- genome: \"${build}\"" > assets/igenomes/${genome}/${build_name}
+        echo "  source: \"${genome}\"" >> assets/igenomes/${genome}/${build_name}
+        echo "  species: \"${species}\"" >> assets/igenomes/${genome}/${build_name}
+        echo "  vcf:" >> assets/igenomes/${genome}/${build_name}
     fi
 
-    ! grep -q vcf assets/igenomes/${genome}/${build}.yml && echo "  vcf:" >> assets/igenomes/${genome}/${build}.yml
+    ! grep -q vcf assets/igenomes/${genome}/${build_name} && echo "  vcf:" >> assets/igenomes/${genome}/${build_name}
 
-    echo "    ${vcf_category}:" >> assets/igenomes/${genome}/${build}.yml
-    echo "      vcf: \"${i}\"" >> assets/igenomes/${genome}/${build}.yml
+    echo "    ${vcf_category}:" >> assets/igenomes/${genome}/${build_name}
+    echo "      vcf: \"${i}\"" >> assets/igenomes/${genome}/${build_name}
 
-    grep -q ${i}.idx manifest.txt && echo "      vcf_idx: \"${i}.idx\"" >> assets/igenomes/${genome}/${build}.yml
-    grep -q ${i}.tbi manifest.txt && echo "      vcf_tbi: \"${i}.tbi\"" >> assets/igenomes/${genome}/${build}.yml
+    grep -q ${i}.idx manifest.txt && echo "      vcf_idx: \"${i}.idx\"" >> assets/igenomes/${genome}/${build_name}
+    grep -q ${i}.tbi manifest.txt && echo "      vcf_tbi: \"${i}.tbi\"" >> assets/igenomes/${genome}/${build_name}
 
     if [[ ${source_vcf} = "unknown" ]]; then
         continue
     fi
 
-    echo "      vcf_source: \"${source_vcf}\"" >> assets/igenomes/${genome}/${build}.yml
+    echo "      vcf_source: \"${source_vcf}\"" >> assets/igenomes/${genome}/${build_name}
 done
 
 echo "Fixing /GATK/GRCh37.yml name to GATK/GRCh37decoy.yml"

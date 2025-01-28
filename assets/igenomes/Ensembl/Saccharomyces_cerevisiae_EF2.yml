@@ -1,4 +1,4 @@
-- genome: "Saccharomyces_cerevisiae_EF2"
+- genome: "EF2"
   fasta: "s3://ngi-igenomes/igenomes/Saccharomyces_cerevisiae/Ensembl/EF2/Sequence/WholeGenomeFasta/genome.fa"
   source: "Ensembl"
   species: "Saccharomyces_cerevisiae"
