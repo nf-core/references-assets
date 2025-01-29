@@ -1,0 +1,27 @@
+# params.igenomes_base = s3://nf-core-references/test_data
+- genome: "GRCh38_chr22"
+  source: "nf-core/references"
+  species: "Homo_sapiens"
+  fasta: "${params.igenomes_base}/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Sequence/WholeGenomeFasta/genome.fasta"
+  fasta_fai: "${params.igenomes_base}/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Sequence/WholeGenomeFasta/genome.fasta.fai"
+  fasta_dict: "${params.igenomes_base}/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Sequence/WholeGenomeFasta/genome.dict"
+  bwamem1_index: "${params.igenomes_base}/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Sequence/BWAIndex/version0.7.18/"
+  bwamem2_index: "${params.igenomes_base}/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Sequence/BWAmem2Index/version2.2.1/"
+  dragmap_hashtable: "${params.igenomes_base}/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Sequence/dragmap/version1.2.1/"
+  intervals_bed: "${params.igenomes_base}/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Annotation/intervals/testdata.GRCh38_chr22.bed"
+  ngscheckmate_bed: "${params.igenomes_base}/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Annotation/NGSCheckMate/SNP_GRCh38_hg38_wChr.bed"
+  snpeff_db: 'WBcel235.105'
+  vep_cache_version: '113'
+  vep_genome: 'WBcel235'
+  vep_species: 'caenorhabditis_elegans'
+  vcf:
+    dbsnp:
+      vcf: "${params.igenomes_base}/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Annotation/GATK_BUNDLE/dbsnp_146.hg38.vcf.gz"
+      vcf_tbi: "${params.igenomes_base}/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Annotation/GATK_BUNDLE/dbsnp_146.hg38.vcf.gz.tbi"
+      vcf_vqsr: '--resource:dbsnp,known=false,training=true,truth=false,prior=2.0 dbsnp_146.hg38.vcf.gz'
+    germline_resource:
+      vcf: "${params.igenomes_base}/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Annotation/GATK_BUNDLE/gnomAD.r2.1.1.vcf.gz"
+      vcf_tbi: "${params.igenomes_base}/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Annotation/GATK_BUNDLE/gnomAD.r2.1.1.vcf.gz.tbi"
+    known_indels:
+      vcf: "${params.igenomes_base}/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Annotation/GATK_BUNDLE/mills_and_1000G.indels.vcf.gz"
+      vcf_tbi: "${params.igenomes_base}/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Annotation/GATK_BUNDLE/mills_and_1000G.indels.vcf.gz.tbi"
