@@ -65,7 +65,7 @@ echo "Number of files in manifest: $total_files"
 cp manifest.txt leftover_manifest.txt
 
 # Remove existing assets
-rm -rf assets/igenomes/
+rm -rf igenomes/
 
 # Generate base info in species/genome/build.yml
 
@@ -98,13 +98,13 @@ do
         build_name="${species}_${build}.yml"
     fi
 
-    mkdir -p assets/igenomes/${genome}
+    mkdir -p igenomes/${genome}
 
-    echo "- genome: \"${build}\"" > assets/igenomes/${genome}/${build_name}
-    echo "  fasta: \"${i::-4}\"" >> assets/igenomes/${genome}/${build_name}
-    echo "  source: \"${genome}\"" >> assets/igenomes/${genome}/${build_name}
-    echo "  species: \"${species}\"" >> assets/igenomes/${genome}/${build_name}
-    echo "  fasta_fai: \"${i}\"" >> assets/igenomes/${genome}/${build_name}
+    echo "- genome: \"${build}\"" > igenomes/${genome}/${build_name}
+    echo "  fasta: \"${i::-4}\"" >> igenomes/${genome}/${build_name}
+    echo "  source: \"${genome}\"" >> igenomes/${genome}/${build_name}
+    echo "  species: \"${species}\"" >> igenomes/${genome}/${build_name}
+    echo "  fasta_fai: \"${i}\"" >> igenomes/${genome}/${build_name}
 done
 
 # All source README
@@ -129,7 +129,7 @@ do
         build_name="${species}_${build}.yml"
     fi
 
-    echo "  readme: \"${i}\"" >> assets/igenomes/${genome}/${build_name}
+    echo "  readme: \"${i}\"" >> igenomes/${genome}/${build_name}
 done
 
 # All source gtf (removing the onces coming from gencode)
@@ -154,7 +154,7 @@ do
         build_name="${species}_${build}.yml"
     fi
 
-    echo "  gtf: \"${i}\"" >> assets/igenomes/${genome}/${build_name}
+    echo "  gtf: \"${i}\"" >> igenomes/${genome}/${build_name}
 done
 
 # All source fasta.dict
@@ -179,7 +179,7 @@ do
         build_name="${species}_${build}.yml"
     fi
 
-    echo "  fasta_dict: \"${i}\"" >> assets/igenomes/${genome}/${build_name}
+    echo "  fasta_dict: \"${i}\"" >> igenomes/${genome}/${build_name}
 done
 
 # All source genes.bed
@@ -204,7 +204,7 @@ do
         build_name="${species}_${build}.yml"
     fi
 
-    echo "  genes_bed: \"${i}\"" >> assets/igenomes/${genome}/${build_name}
+    echo "  genes_bed: \"${i}\"" >> igenomes/${genome}/${build_name}
 done
 
 # All source BowtieIndex
@@ -229,7 +229,7 @@ do
         build_name="${species}_${build}.yml"
     fi
 
-    echo "  bowtie1_index: \"${i}/\"" >> assets/igenomes/${genome}/${build_name}
+    echo "  bowtie1_index: \"${i}/\"" >> igenomes/${genome}/${build_name}
 done
 
 # All source Bowtie2Index
@@ -254,7 +254,7 @@ do
         build_name="${species}_${build}.yml"
     fi
 
-    echo "  bowtie2_index: \"${i}/\"" >> assets/igenomes/${genome}/${build_name}
+    echo "  bowtie2_index: \"${i}/\"" >> igenomes/${genome}/${build_name}
 done
 
 # All source BWAIndex (we have version0.6.0, version0.5.x, and no version specified)
@@ -281,8 +281,8 @@ do
 
     # Remove existing bwamem1_index if present
     # So that we only keep the latest version
-    sed -i '\|bwamem1_index|d' assets/igenomes/${genome}/${build_name}
-    echo "  bwamem1_index: \"${i}/\"" >> assets/igenomes/${genome}/${build_name}
+    sed -i '\|bwamem1_index|d' igenomes/${genome}/${build_name}
+    echo "  bwamem1_index: \"${i}/\"" >> igenomes/${genome}/${build_name}
 done
 
 # All source BWAmem2mem
@@ -307,7 +307,7 @@ do
         build_name="${species}_${build}.yml"
     fi
 
-    echo "  bwamem2_index: \"${i}/\"" >> assets/igenomes/${genome}/${build_name}
+    echo "  bwamem2_index: \"${i}/\"" >> igenomes/${genome}/${build_name}
 done
 
 # All source Dragmap
@@ -332,7 +332,7 @@ do
         build_name="${species}_${build}.yml"
     fi
 
-    echo "  dragmap_hashtable: \"${i}/\"" >> assets/igenomes/${genome}/${build_name}
+    echo "  dragmap_hashtable: \"${i}/\"" >> igenomes/${genome}/${build_name}
 done
 
 # All source BismarkIndex
@@ -357,7 +357,7 @@ do
         build_name="${species}_${build}.yml"
     fi
 
-    echo "  bismark_index: \"${i}/\"" >> assets/igenomes/${genome}/${build_name}
+    echo "  bismark_index: \"${i}/\"" >> igenomes/${genome}/${build_name}
 done
 
 # All source star Index
@@ -382,7 +382,7 @@ do
         build_name="${species}_${build}.yml"
     fi
 
-    echo "  star_index: \"${i}/\"" >> assets/igenomes/${genome}/${build_name}
+    echo "  star_index: \"${i}/\"" >> igenomes/${genome}/${build_name}
 done
 
 # All source Chromosomes fasta
@@ -407,7 +407,7 @@ do
         build_name="${species}_${build}.yml"
     fi
 
-    echo "  chromosomes_fasta: \"${i}/\"" >> assets/igenomes/${genome}/${build_name}
+    echo "  chromosomes_fasta: \"${i}/\"" >> igenomes/${genome}/${build_name}
 done
 
 # All source AbundantSequences fasta
@@ -432,7 +432,7 @@ do
         build_name="${species}_${build}.yml"
     fi
 
-    echo "  abundantsequences_fasta: \"${i}/\"" >> assets/igenomes/${genome}/${build_name}
+    echo "  abundantsequences_fasta: \"${i}/\"" >> igenomes/${genome}/${build_name}
 done
 
 # All source refFlat (removing the ones coming from gencode)
@@ -457,7 +457,7 @@ do
         build_name="${species}_${build}.yml"
     fi
 
-    echo "  genes_refflat: \"${i}\"" >> assets/igenomes/${genome}/${build_name}
+    echo "  genes_refflat: \"${i}\"" >> igenomes/${genome}/${build_name}
 done
 
 # All source refgene
@@ -482,7 +482,7 @@ do
         build_name="${species}_${build}.yml"
     fi
 
-    echo "  genes_refgene: \"${i}\"" >> assets/igenomes/${genome}/${build_name}
+    echo "  genes_refgene: \"${i}\"" >> igenomes/${genome}/${build_name}
 done
 
 # All source ChromInfo.txt
@@ -507,7 +507,7 @@ do
         build_name="${species}_${build}.yml"
     fi
 
-    echo "  chrom_info: \"${i}\"" >> assets/igenomes/${genome}/${build_name}
+    echo "  chrom_info: \"${i}\"" >> igenomes/${genome}/${build_name}
 done
 
 # All source GenomeSize.xml (removing the old ones)
@@ -532,7 +532,7 @@ do
         build_name="${species}_${build}.yml"
     fi
 
-    echo "  genome_size_xml: \"${i}\"" >> assets/igenomes/${genome}/${build_name}
+    echo "  genome_size_xml: \"${i}\"" >> igenomes/${genome}/${build_name}
 done
 
 # All source hairpin.fa
@@ -557,7 +557,7 @@ do
         build_name="${species}_${build}.yml"
     fi
 
-    echo "  hairpin_fasta: \"${i}\"" >> assets/igenomes/${genome}/${build_name}
+    echo "  hairpin_fasta: \"${i}\"" >> igenomes/${genome}/${build_name}
 done
 
 # All source mature.fa
@@ -582,7 +582,7 @@ do
         build_name="${species}_${build}.yml"
     fi
 
-    echo "  mature_fasta: \"${i}\"" >> assets/igenomes/${genome}/${build_name}
+    echo "  mature_fasta: \"${i}\"" >> igenomes/${genome}/${build_name}
 done
 
 # All source vcf
@@ -739,32 +739,32 @@ do
         continue
     fi
 
-    if ! [ -f assets/igenomes/${genome}/${build_name} ]; then
-        echo "- genome: \"${build}\"" > assets/igenomes/${genome}/${build_name}
-        echo "  source: \"${genome}\"" >> assets/igenomes/${genome}/${build_name}
-        echo "  species: \"${species}\"" >> assets/igenomes/${genome}/${build_name}
-        echo "  vcf:" >> assets/igenomes/${genome}/${build_name}
+    if ! [ -f igenomes/${genome}/${build_name} ]; then
+        echo "- genome: \"${build}\"" > igenomes/${genome}/${build_name}
+        echo "  source: \"${genome}\"" >> igenomes/${genome}/${build_name}
+        echo "  species: \"${species}\"" >> igenomes/${genome}/${build_name}
+        echo "  vcf:" >> igenomes/${genome}/${build_name}
     fi
 
-    ! grep -q vcf assets/igenomes/${genome}/${build_name} && echo "  vcf:" >> assets/igenomes/${genome}/${build_name}
+    ! grep -q vcf igenomes/${genome}/${build_name} && echo "  vcf:" >> igenomes/${genome}/${build_name}
 
-    echo "    ${vcf_category}:" >> assets/igenomes/${genome}/${build_name}
-    echo "      vcf: \"${i}\"" >> assets/igenomes/${genome}/${build_name}
+    echo "    ${vcf_category}:" >> igenomes/${genome}/${build_name}
+    echo "      vcf: \"${i}\"" >> igenomes/${genome}/${build_name}
 
-    grep -q ${i}.idx manifest.txt && echo "      vcf_idx: \"${i}.idx\"" >> assets/igenomes/${genome}/${build_name}
-    grep -q ${i}.tbi manifest.txt && echo "      vcf_tbi: \"${i}.tbi\"" >> assets/igenomes/${genome}/${build_name}
+    grep -q ${i}.idx manifest.txt && echo "      vcf_idx: \"${i}.idx\"" >> igenomes/${genome}/${build_name}
+    grep -q ${i}.tbi manifest.txt && echo "      vcf_tbi: \"${i}.tbi\"" >> igenomes/${genome}/${build_name}
 
     if [[ ${source_vcf} = "unknown" ]]; then
         continue
     fi
 
-    echo "      vcf_source: \"${source_vcf}\"" >> assets/igenomes/${genome}/${build_name}
+    echo "      vcf_source: \"${source_vcf}\"" >> igenomes/${genome}/${build_name}
 done
 
 echo "Fixing /GATK/GRCh37.yml name to GATK/GRCh37decoy.yml"
 
 #  GATK/GRCh37.yml should actually be GATK/GRCh37decoy.yml
-mv assets/igenomes/GATK/GRCh37.yml assets/igenomes/GATK/GRCh37decoy.yml
+mv igenomes/GATK/GRCh37.yml igenomes/GATK/GRCh37decoy.yml
 
 echo "Deleting assets from manifest"
 
