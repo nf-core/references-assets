@@ -19,6 +19,4 @@
   genome_size_xml: "${params.igenomes_base}/Rattus_norvegicus/Ensembl/Rnor_5.0/Sequence/WholeGenomeFasta/GenomeSize.xml"
   hairpin_fasta: "${params.igenomes_base}/Rattus_norvegicus/Ensembl/Rnor_5.0/Annotation/SmallRNA/hairpin.fa"
   mature_fasta: "${params.igenomes_base}/Rattus_norvegicus/Ensembl/Rnor_5.0/Annotation/SmallRNA/mature.fa"
-  vcf:
-    known_snps:
-      vcf: "${params.igenomes_base}/Rattus_norvegicus/Ensembl/Rnor_5.0/Annotation/Variation/Rattus_norvegicus.vcf"
+  vcf_known_snps_vcf: "${params.igenomes_base}/Rattus_norvegicus/Ensembl/Rnor_5.0/Annotation/Variation/Rattus_norvegicus.vcf"

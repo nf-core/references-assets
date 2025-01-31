@@ -747,19 +747,16 @@ do
         echo "  vcf:" >> igenomes/${genome}/${build_name}
     fi
 
-    ! grep -q vcf igenomes/${genome}/${build_name} && echo "  vcf:" >> igenomes/${genome}/${build_name}
+    echo "  vcf_${vcf_category}_vcf: \"${i}\"" >> igenomes/${genome}/${build_name}
 
-    echo "    ${vcf_category}:" >> igenomes/${genome}/${build_name}
-    echo "      vcf: \"${i}\"" >> igenomes/${genome}/${build_name}
-
-    grep -q ${i}.idx manifest.txt && echo "      vcf_idx: \"${i}.idx\"" >> igenomes/${genome}/${build_name}
-    grep -q ${i}.tbi manifest.txt && echo "      vcf_tbi: \"${i}.tbi\"" >> igenomes/${genome}/${build_name}
+    grep -q ${i}.idx manifest.txt && echo "  vcf_${vcf_category}_vcf_idx: \"${i}.idx\"" >> igenomes/${genome}/${build_name}
+    grep -q ${i}.tbi manifest.txt && echo "  vcf_${vcf_category}_vcf_tbi: \"${i}.tbi\"" >> igenomes/${genome}/${build_name}
 
     if [[ ${source_vcf} = "unknown" ]]; then
         continue
     fi
 
-    echo "      vcf_source: \"${source_vcf}\"" >> igenomes/${genome}/${build_name}
+    echo "  vcf_${vcf_category}_vcf_source: \"${source_vcf}\"" >> igenomes/${genome}/${build_name}
 done
 
 echo "Fixing /GATK/GRCh37.yml name to GATK/GRCh37decoy.yml"

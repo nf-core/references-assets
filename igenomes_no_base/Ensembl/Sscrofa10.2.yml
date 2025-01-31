@@ -18,6 +18,4 @@
   genome_size_xml: "s3://ngi-igenomes/igenomes/Sus_scrofa/Ensembl/Sscrofa10.2/Sequence/WholeGenomeFasta/GenomeSize.xml"
   hairpin_fasta: "s3://ngi-igenomes/igenomes/Sus_scrofa/Ensembl/Sscrofa10.2/Annotation/SmallRNA/hairpin.fa"
   mature_fasta: "s3://ngi-igenomes/igenomes/Sus_scrofa/Ensembl/Sscrofa10.2/Annotation/SmallRNA/mature.fa"
-  vcf:
-    known_snps:
-      vcf: "s3://ngi-igenomes/igenomes/Sus_scrofa/Ensembl/Sscrofa10.2/Annotation/Variation/Sus_scrofa.vcf"
+  vcf_known_snps_vcf: "s3://ngi-igenomes/igenomes/Sus_scrofa/Ensembl/Sscrofa10.2/Annotation/Variation/Sus_scrofa.vcf"

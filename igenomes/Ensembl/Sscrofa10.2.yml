@@ -19,6 +19,4 @@
   genome_size_xml: "${params.igenomes_base}/Sus_scrofa/Ensembl/Sscrofa10.2/Sequence/WholeGenomeFasta/GenomeSize.xml"
   hairpin_fasta: "${params.igenomes_base}/Sus_scrofa/Ensembl/Sscrofa10.2/Annotation/SmallRNA/hairpin.fa"
   mature_fasta: "${params.igenomes_base}/Sus_scrofa/Ensembl/Sscrofa10.2/Annotation/SmallRNA/mature.fa"
-  vcf:
-    known_snps:
-      vcf: "${params.igenomes_base}/Sus_scrofa/Ensembl/Sscrofa10.2/Annotation/Variation/Sus_scrofa.vcf"
+  vcf_known_snps_vcf: "${params.igenomes_base}/Sus_scrofa/Ensembl/Sscrofa10.2/Annotation/Variation/Sus_scrofa.vcf"

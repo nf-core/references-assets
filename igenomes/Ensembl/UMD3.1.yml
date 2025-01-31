@@ -19,6 +19,4 @@
   genome_size_xml: "${params.igenomes_base}/Bos_taurus/Ensembl/UMD3.1/Sequence/WholeGenomeFasta/GenomeSize.xml"
   hairpin_fasta: "${params.igenomes_base}/Bos_taurus/Ensembl/UMD3.1/Annotation/SmallRNA/hairpin.fa"
   mature_fasta: "${params.igenomes_base}/Bos_taurus/Ensembl/UMD3.1/Annotation/SmallRNA/mature.fa"
-  vcf:
-    known_snps:
-      vcf: "${params.igenomes_base}/Bos_taurus/Ensembl/UMD3.1/Annotation/Variation/Bos_taurus.vcf"
+  vcf_known_snps_vcf: "${params.igenomes_base}/Bos_taurus/Ensembl/UMD3.1/Annotation/Variation/Bos_taurus.vcf"

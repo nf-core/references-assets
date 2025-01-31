@@ -14,14 +14,10 @@
   vep_cache_version: '113'
   vep_genome: 'WBcel235'
   vep_species: 'caenorhabditis_elegans'
-  vcf:
-    dbsnp:
-      vcf: "${params.igenomes_base}/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Annotation/GATK_BUNDLE/dbsnp_146.hg38.vcf.gz"
-      vcf_tbi: "${params.igenomes_base}/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Annotation/GATK_BUNDLE/dbsnp_146.hg38.vcf.gz.tbi"
-      vcf_vqsr: '--resource:dbsnp,known=false,training=true,truth=false,prior=2.0 dbsnp_146.hg38.vcf.gz'
-    germline_resource:
-      vcf: "${params.igenomes_base}/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Annotation/GATK_BUNDLE/gnomAD.r2.1.1.vcf.gz"
-      vcf_tbi: "${params.igenomes_base}/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Annotation/GATK_BUNDLE/gnomAD.r2.1.1.vcf.gz.tbi"
-    known_indels:
-      vcf: "${params.igenomes_base}/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Annotation/GATK_BUNDLE/mills_and_1000G.indels.vcf.gz"
-      vcf_tbi: "${params.igenomes_base}/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Annotation/GATK_BUNDLE/mills_and_1000G.indels.vcf.gz.tbi"
+  vcf_dbsnp_vcf: "${params.igenomes_base}/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Annotation/GATK_BUNDLE/dbsnp_146.hg38.vcf.gz"
+  vcf_dbsnp_vcf_tbi: "${params.igenomes_base}/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Annotation/GATK_BUNDLE/dbsnp_146.hg38.vcf.gz.tbi"
+  vcf_dbsnp_vcf_vqsr: '--resource:dbsnp,known=false,training=true,truth=false,prior=2.0 dbsnp_146.hg38.vcf.gz'
+  vcf_germline_resource_vcf: "${params.igenomes_base}/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Annotation/GATK_BUNDLE/gnomAD.r2.1.1.vcf.gz"
+  vcf_germline_resource_vcf_tbi: "${params.igenomes_base}/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Annotation/GATK_BUNDLE/gnomAD.r2.1.1.vcf.gz.tbi"
+  vcf_known_indels_vcf: "${params.igenomes_base}/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Annotation/GATK_BUNDLE/mills_and_1000G.indels.vcf.gz"
+  vcf_known_indels_vcf_tbi: "${params.igenomes_base}/Homo_sapiens/nf-core/references/testdata.GRCh38_chr22/Annotation/GATK_BUNDLE/mills_and_1000G.indels.vcf.gz.tbi"
