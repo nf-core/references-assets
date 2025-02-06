@@ -1,3 +1,5 @@
+# Created with nf-core/references 0.2
+# Source yaml: genomes_source/Homo_sapiens/test/GRCh38_chr22.yml
 - genome: "GRCh38_chr22"
   source: "nf-core/references"
   species: "Homo_sapiens"
